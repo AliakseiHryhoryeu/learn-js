@@ -41,7 +41,7 @@ const babelOptions = (preset) => {
 module.exports = {
   context: path.resolve(__dirname, "src"),
   mode: "development",
-  entry: ['@babel/polyfill', './src/index.js'],
+  entry: ['@babel/polyfill', './index.js'],
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "[name].[fullhash].js",
