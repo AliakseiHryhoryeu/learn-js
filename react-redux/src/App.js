@@ -1,19 +1,24 @@
 import React from 'react';
+import FetchedPosts from './components/FetchedPosts';
+import PostForm from './components/PostForm';
+import Posts from './components/Posts';
 
 export default function App() {
   return (
     <div className="container pt-3">
       <div className="row">
         <div className="col">
-          FORM
+          <PostForm />
         </div>
       </div>
       <div className="row">
         <div className="col">
-          POSTS
+          <h2>Sync Posts</h2>
+          <Posts />
         </div>
         <div className="col">
-          FETCHED POSTS
+          <h2>Async Posts</h2>
+          <FetchedPosts />
         </div>
       </div>
 
