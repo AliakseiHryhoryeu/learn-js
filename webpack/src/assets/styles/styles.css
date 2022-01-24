@@ -1,0 +1,8 @@
+@import '~normalize.css';   /* normalize plugin - yarn add normalize.css */
+@import "roboto.css";       /* font roboto style */
+@import "scss.scss";        /* all styles */
+
+body{
+    font-family: 'Roboto',sans-serif;
+}
+

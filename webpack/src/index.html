@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Webpack</title>
+</head>
+
+<body>
+    <div class="root">
+        <header class="header">
+            <h1>Learn Webpack</h1>
+        </header>
+        <section class="img">
+            <div class="img__title">
+                Images
+            </div>
+            <div class="img__container">
+
+                <div class="img__item">
+                    <img src=<%=require("@img/jpg.jpg" )%> alt="jpg.jpg" />
+                    <p>Jpg</p>
+                </div>
+                <div class="img__item">
+                    <img src=<%=require("@img/gif.gif" )%> alt="gif.gif" />
+                    <p>Gif (Chinchilla ↑)</p>
+                </div>
+                <div class="img__item">
+                    <img src=<%=require("@img/png.png" )%> alt="png.png" />
+                    <p>Png</p>
+                </div>
+                <div class="img__item">
+                    <img src=<%=require("@img/svg.svg" )%> alt="svg.svg" />
+                    <p>Svg</p>
+                </div>
+                <div class="img__item">
+                    <img src=<%=require("@img/webp.webp" )%> alt="webp.webp" />
+                    <p>Webp</p>
+                </div>
+            </div>
+        </section>
+        <section class="posts">
+            <div class="posts__title">
+                Json files
+            </div>
+            <div id="posts__container">
+
+            </div>
+        </section>
+
+        <footer></footer>
+    </div>
+</body>
+
+</html>
