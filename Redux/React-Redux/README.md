@@ -1,5 +1,5 @@
-### In this folder i learn Redux
+### In this folder i learn how work Redux-React
 
 
-![Redux-Saga-preview](preview.gif)
+![Redux-React-preview](preview.png)
 
