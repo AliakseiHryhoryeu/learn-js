@@ -14,4 +14,4 @@
 + How work witch eslint
 + Optimize html css js for production builds
 
-![Webpack-page-preview](preview.png)
+![Webpack-page-preview](preview-1.png)
