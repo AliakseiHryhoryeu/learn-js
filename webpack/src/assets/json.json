@@ -3,18 +3,18 @@
 		"name": "Big Corporation",
 		"numberOfEmployees": 10000,
 		"ceo": "Mary",
-		"rating": 3.6
+		"rating": 4.2
 	},
 	{
 		"name": "Medium Company",
 		"numberOfEmployees": 100,
-		"ceo": "Mary",
-		"rating": 4.5
+		"ceo": "Abram",
+		"rating": 4.0
 	},
 	{
-		"name": "Big Corporation",
+		"name": "Small Company",
 		"numberOfEmployees": 3,
-		"ceo": "Mary",
-		"rating": 4.3
+		"ceo": "Eshan",
+		"rating": 3.5
 	}
 ]

@@ -1,5 +1,5 @@
 # Webpack
-### In this repository, I figured out how to work with webpack
+### In this folder, I work with webpack
 ### I understood how to work with the following types of files using Webpack
 + ttf woff woff2 eot
 + png jpg svg gif webp
@@ -14,4 +14,4 @@
 + How work witch eslint
 + Optimize html css js for production builds
 
-![Webpack-page-preview](/preview.png)
+![Webpack-page-preview](preview.png)

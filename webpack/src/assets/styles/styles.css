@@ -1,8 +1,12 @@
 @import '~normalize.css';   /* normalize plugin - yarn add normalize.css */
-@import "roboto.css";       /* font roboto style */
+@import "ibmPlexSans.css";       /* font IBM Plex Sans Thai Looped*/
 @import "scss.scss";        /* all styles */
 
 body{
-    font-family: 'Roboto',sans-serif;
+    font-family: 'IBM Plex Sans Thai Looped', system-ui, sans-serif;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  
 }
 
