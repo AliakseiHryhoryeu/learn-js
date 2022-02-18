@@ -1,52 +1,33 @@
-const isFetching: boolean = true
-const isLoading: boolean = false
 
-const int: number = 42
-const float: number = 4.2
-const num: number = 3e10
+const str: string = 'Hello123'
 
-const message: string = 'Hello World'
+const bool1: boolean = true
+const bool2: boolean = false
 
-const numberArray: number[] = [1, 1, 2, 3, 5, 8, 13]
-const numberArray2: Array<number> = [1, 1, 2, 3, 5, 8, 13]
+const int: number = 1234
+const float: number = 1.2
+const num: number = 1e12
 
-const words: string[] = ['Hello', 'World']
+const numArray1: number[] = [1, 2, 3, 4, 5]
+const numArray2: Array<number> = [1, 2, 3, 4, 5]
 
-// Tuple
-const contact: [string, number] = ['Vladilen', 1234567]
+const strArray: string[] = ['Hello', 'World']
 
-// Any
 let variable: any = 42
+variable = 'qwerty'
 
-variable = 'New String'
-variable = []
+// Tuple - create Array witch other's types
+const balance: [string, number] = ['User123', 111111]
 
-// ====
-function sayMyName(name: string): void {
-  console.log(name)
-}
-sayMyName('name')
-
-// Never
-function throwError(message: string): never {
-  throw new Error(message)
-}
-
-function infinite(): never {
-  while (true) {
-
-  }
-}
-
-// Type
+// create custom type string
 type Login = string
 
-const login: Login = 'admin'
-// const login2: Login = 2
+const login :Login = 'temp123'
+// const login2:Login = 2222 - error
 
+// create type type string or number
 type ID = string | number
-const id1: ID = 1234
-const id2: ID = '1234'
-// const id3: ID = true
 
-type SomeType = string | null | undefined
+const testId1 = 1111111
+const testId2 = 'QWERTYUIOPXSDFHKJL214521' 
+

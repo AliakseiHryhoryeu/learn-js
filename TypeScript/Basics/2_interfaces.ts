@@ -1,77 +1,86 @@
-interface Rect {
-  readonly id: string
-  color?: string
-  size: {
-    width: number
-    height: number
-  }
+interface IUser {
+    readonly id: string | number
+    username: string
+    password: string
+    description?: string
+    message?: string
+    money: {
+        euro: number
+        dollar: number
+    }
+
 }
 
-const rect1: Rect = {
-  id: '1234',
-  size: {
-    width: 20,
-    height: 30
-  },
-  color: '#ccc'
+const temp123: IUser = {
+    id: 123,
+    username: 'temp123',
+    password: 'qwerty',
+    money: {
+        euro: 111,
+        dollar: 222
+    }
 }
 
-const rect2: Rect = {
-  id: '12345',
-  size: {
-    width: 10,
-    height: 5
-  }
+const temp111: IUser = {
+    id: 111,
+    username: 'temp111',
+    password: 'qwerty',
+    description: 'This is description',
+    message: 'Hello world',
+    money: {
+        euro: 333,
+        dollar: 444
+    }
 }
 
-rect2.color = 'black'
-// rect2.id = '3232'
+temp111.description = 'changed description'
 
-const rect3 = {} as Rect
-const rect4 = <Rect>{}
+// cast
 
-// =====================
+const temp124 = {} as IUser
+const temp125 = <IUser>{}
+console.log(temp123)
+console.log(temp111)
 
-interface RectWithArea extends Rect {
-  getArea: () => number
+console.log(temp124)
+console.log(temp125)
+
+// interface inheritance
+
+interface IFigure {
+    id: number | string,
+    area?: number,
+    perimeter?: number
+
 }
 
-const rect5: RectWithArea = {
-  id: '123',
-  size: {
-    width: 20,
-    height: 20
-  },
-  getArea(): number {
-    return this.size.width * this.size.height
-  }
+interface IRectangle extends IFigure {
+    size: {
+        height: number,
+        width: number
+    }
+    getArea: () => number
 }
 
-// ==================
+const rectangle_111: IRectangle = {
+    id: 1234,
+    size: {
+        height: 20,
+        width: 30
 
-interface IClock {
-  time: Date
-  setTime(date: Date): void
-}
-
-class Clock implements IClock {
-  time: Date = new Date()
-
-  setTime(date: Date): void {
-    this.time = date
-  }
-}
-
-// =================
-
-interface Styles {
-  [key: string]: string
-}
-
-const css: Styles = {
-  border: '1px solid black',
-  marginTop: '2px',
-  borderRadius: '5px'
+    },
+    getArea(): number {
+        return this.size.height * this.size.width
+    }
 }
 
 
+interface IStyles {
+    [key:string]:string
+}
+
+const css:IStyles = {
+border: '1px solid black',
+marginTop:'2px',
+borderRadius:'5px'
+}

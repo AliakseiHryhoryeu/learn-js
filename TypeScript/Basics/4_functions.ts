@@ -1,10 +1,20 @@
-function add(a: number, b: number): number {
-  return a + b
+// Functions
+
+//take param string type, not return result
+const sayMessage = (message: string): void => {
+  console.log(message)
 }
 
-function toUpperCase(str: string): string {
-  return str.trim().toUpperCase()
+// take 2 param number type, return string
+function sum(a: number, b: number): string {
+  const sum: number = a + b
+  return `the sum is ${sum}`
 }
+// sum(1,'word') - error
+const resultSum: string = sum(1, 2)
+console.log(resultSum)
+
+// overload functions
 
 interface MyPosition {
   x: number | undefined
