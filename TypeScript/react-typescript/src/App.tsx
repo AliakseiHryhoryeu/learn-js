@@ -1,13 +1,23 @@
 import React from 'react';
-import Navbar from './components/Navbar';
+import { Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
 
+
+import { TodoPage } from './pages/TodoPage'
+import { AboutPage } from './pages/AboutPage'
 
 function App() {
+
+
   return (
-    <div className="App">
+    <>
       <Navbar />
-      Hello TypeScript
-    </div>
+        <Routes>
+          <Route path='/about' element={<AboutPage />} />
+          <Route path='/' element={<TodoPage />} />
+        </Routes>
+    </>
+
   )
 }
 
