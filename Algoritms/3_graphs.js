@@ -4,6 +4,11 @@
 //          \       /
 //              C     ---       E
 
+/* Queue data structure */
+/* First in - first out */
+
+/* Stack data structure */
+/* Last in - first out */
 
 
 /* search in width */
@@ -17,8 +22,6 @@ graph.e = ['f']
 graph.f = ['g']
 
 
-/* Queue data structure */
-/* First in - first out */
 
 function breadthSearch(graph, start, end) {
     let queue = []
