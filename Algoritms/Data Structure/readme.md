@@ -10,3 +10,6 @@ First in - first out
 Last in - first out
 
 ![Stack - 1](stack_1.jpg)
+
+## Tree
+
