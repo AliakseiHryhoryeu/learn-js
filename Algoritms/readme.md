@@ -3,7 +3,7 @@
 First in - first out
 
 ![Queue - 1](./img/queue_1.jpg)
-![Queue - 2]./img/queue_2.jpg)
+![Queue - 2](./img/queue_2.jpg)
 
 ## Stack 
 Last in - first out
