@@ -3,6 +3,7 @@ const config = require("./config.json")
 const graphqlHTTP = require('express-graphql')
 const schema = require('../schema/schema')
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 const app = express();
 const PORT = config.serverPort;
@@ -25,7 +26,7 @@ const start = async () => {
 
 start()
 
-
+app.use(cors())
 app.use('/graphql', graphqlHTTP({
   schema,
   graphiql: true
