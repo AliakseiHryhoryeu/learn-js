@@ -1,15 +1,34 @@
 const express = require('express')
+const config = require("./config.json")
 const graphqlHTTP = require('express-graphql')
 const schema = require('../schema/schema')
+const mongoose = require('mongoose')
 
 const app = express();
-const PORT = 3100;
+const PORT = config.serverPort;
+
+
+const start = async () => {
+  try {
+    await mongoose.connect(config.dbUrl, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
+
+    app.listen(PORT, () => {
+      console.log('Server started on port ', PORT)
+    })
+  } catch (e) {
+    console.log(e)
+  }
+}
+
+start()
+
 
 app.use('/graphql', graphqlHTTP({
   schema,
-  graphiql:true
+  graphiql: true
 }))
 
-app.listen(PORT, err => {
-  err ? console.log(err) : console.log('Server started!')
-});
+

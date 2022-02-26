@@ -1,0 +1,5 @@
+{
+  "serverPort": 3100,
+  "dbUrl": "mongodb+srv://graphql:vXYJYv6kE8DcTaG@cluster0.htteh.mongodb.net/cinema?retryWrites=true&w=majority",
+  "secretKey": "ksabf43473hsaldjnisfb"
+}
