@@ -13,20 +13,40 @@ import Menu from '@material-ui/core/Menu';
 import DeleteIcon from '@material-ui/icons/Delete';
 import CreateIcon from '@material-ui/icons/Create';
 
+import MoviesSearch from '../MoviesSearch/MoviesSearch';
 import MoviesDialog from '../MoviesDialog/MoviesDialog';
 
 import withHocs from './MoviesTableHoc';
 
-const movies = [
-  { id: 1, name: 'Pulp Fiction', genre: 'Crime', rate: 10, director: { name: 'Quentin Tarantino' }, watched: true },
-  { id: 2, name: 'Lock, Stock and Two Smoking Barrels', genre: 'Crime-comedy', rate: 9, director: { name: 'Guy Ritchie' }, watched: false },
-];
+// const movies = [
+//   { id: 1, name: 'Pulp Fiction', genre: 'Crime', rate: 10, director: { name: 'Quentin Tarantino' }, watched: true },
+//   { id: 2, name: 'Lock, Stock and Two Smoking Barrels', genre: 'Crime-comedy', rate: 9, director: { name: 'Guy Ritchie' }, watched: false },
+// ];
 
 class MoviesTable extends React.Component {
   state = {
     anchorEl: null,
     openDialog: false,
+    name: '',
   };
+
+  handleChange = name => (event) => {
+    this.setState({ [name]: event.target.value })
+  }
+
+  handleSearch = (e) => {
+    const { data } = this.props
+    const { name } = this.state
+
+    //enter char code === 13
+    if (e.charCode === 13) {
+      data.fetchMore({
+        variables: { name },
+        updateQuery: (previousResult, { fetchMoreResult }) => fetchMoreResult,
+      })
+    }
+  }
+
 
   handleDialogOpen = () => { this.setState({ openDialog: true }); };
   handleDialogClose = () => { this.setState({ openDialog: false }); };
@@ -52,14 +72,16 @@ class MoviesTable extends React.Component {
 
 
   render() {
-    const { anchorEl, openDialog, data: activeElem = {} } = this.state;
+    const { anchorEl, openDialog, data: activeElem = {}, name } = this.state;
 
     const { classes, data } = this.props;
-    console.log(this.props.data)
-    // const { movies = [] } = data
+    const { movies = [] } = data
 
     return (
       <>
+        <Paper>
+          <MoviesSearch name={name} handleChange={this.handleChange} handleSearch={this.handleSearch} />
+        </Paper>
         <MoviesDialog open={openDialog} handleClose={this.handleDialogClose} id={activeElem.id} />
         <Paper className={classes.root}>
           <Table>

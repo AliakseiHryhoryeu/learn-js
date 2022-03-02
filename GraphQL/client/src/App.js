@@ -3,10 +3,11 @@ import Tabs from './components/Tabs/Tabs'
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import theme from './components/theme'
 import ApolloClient from 'apollo-boost'
+import config from './config.json'
 import { ApolloProvider } from 'react-apollo'
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3100/graphql',
+  uri: config.serverIp + 'graphql',
 });
 
 class App extends Component {

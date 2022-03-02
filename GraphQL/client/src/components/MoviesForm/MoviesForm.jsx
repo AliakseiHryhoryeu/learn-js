@@ -14,10 +14,10 @@ import SaveIcon from '@material-ui/icons/Save';
 
 import withHocs from './MoviesFormHoc';
 
-const directors = [
-  { id: 1, name: 'Quentin Tarantino', age: 55, movies: [ { name: 'Movie 1' }, { name: 'Movie 2' } ] },
-  { id: 2, name: 'Guy Ritchie', age: 50, movies: [ { name: 'Movie 1' }, { name: 'Movie 2' } ] }
-];
+// const directors = [
+//   { id: 1, name: 'Quentin Tarantino', age: 55, movies: [ { name: 'Movie 1' }, { name: 'Movie 2' } ] },
+//   { id: 2, name: 'Guy Ritchie', age: 50, movies: [ { name: 'Movie 1' }, { name: 'Movie 2' } ] }
+// ];
 
 class MoviesForm extends React.Component {
   handleClose = () => {
@@ -25,14 +25,19 @@ class MoviesForm extends React.Component {
   };
 
   handleSave = () => {
-    const { selectedValue, onClose } = this.props;
+    const { selectedValue, onClose, addMovie, updateMovie } = this.props;
     const { id, name, genre, rate, directorId, watched } = selectedValue;
+    id ?
+      updateMovie({ id, name, genre, rate: Number(rate), directorId, watched: Boolean(watched) }) :
+      addMovie({ name, genre, rate: Number(rate), directorId, watched: Boolean(watched) })
+
     onClose();
   };
 
   render() {
-    const { classes, open, handleChange, handleSelectChange, handleCheckboxChange, selectedValue = {} } = this.props;
+    const { data = {}, classes, open, handleChange, handleSelectChange, handleCheckboxChange, selectedValue = {} } = this.props;
     const { name, genre, rate, directorId, watched } = selectedValue;
+    const { directors = [] } = data
 
     return (
       <Dialog onClose={this.handleClose} open={open} aria-labelledby="simple-dialog-title">
@@ -78,7 +83,7 @@ class MoviesForm extends React.Component {
               onChange={handleSelectChange}
               input={<OutlinedInput name="directorId" id="outlined-director" labelWidth={57} />}
             >
-            {directors.map(director => <MenuItem key={director.id} value={director.id}>{director.name}</MenuItem>)}
+              {directors.map(director => <MenuItem key={director.id} value={director.id}>{director.name}</MenuItem>)}
             </Select>
           </FormControl>
           <div className={classes.wrapper}>
@@ -96,4 +101,4 @@ class MoviesForm extends React.Component {
   }
 };
 
-  export default withHocs(MoviesForm);
+export default withHocs(MoviesForm);

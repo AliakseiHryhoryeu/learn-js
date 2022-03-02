@@ -12,20 +12,40 @@ import Menu from '@material-ui/core/Menu';
 import DeleteIcon from '@material-ui/icons/Delete';
 import CreateIcon from '@material-ui/icons/Create';
 
+import DirectorsSearch from '../DirectorsSearch/DirectorsSearch'
 import DirectorsDialog from '../DirectorsDialog/DirectorsDialog';
 
 import withHocs from './DirectorsTableHoc';
 
-const directors = [
-  { id: 1, name: 'Quentin Tarantino', age: 55, movies: [ { name: 'Movie 1' }, { name: 'Movie 2' } ] },
-  { id: 2, name: 'Guy Ritchie', age: 50, movies: [ { name: 'Movie 1' }, { name: 'Movie 2' } ] }
-];
+// const directors = [
+//   { id: 1, name: 'Quentin Tarantino', age: 55, movies: [ { name: 'Movie 1' }, { name: 'Movie 2' } ] },
+//   { id: 2, name: 'Guy Ritchie', age: 50, movies: [ { name: 'Movie 1' }, { name: 'Movie 2' } ] }
+// ];
 
 class DirectorsTable extends React.Component {
   state = {
     anchorEl: null,
     openDialog: false,
+    name: '',
   };
+
+  handleChange = name => (event) => {
+    this.setState({ [name]: event.target.value })
+  }
+
+  handleSearch = (e) => {
+    const { data } = this.props
+    const { name } = this.state
+
+    //enter char code === 13
+    if (e.charCode === 13) {
+      data.fetchMore({
+        variables: { name },
+        updateQuery: (previousResult, { fetchMoreResult }) => fetchMoreResult,
+      })
+    }
+  }
+
 
   handleDialogOpen = () => { this.setState({ openDialog: true }); };
   handleDialogClose = () => { this.setState({ openDialog: false }); };
@@ -50,11 +70,15 @@ class DirectorsTable extends React.Component {
   };
 
   render() {
-    const { anchorEl, openDialog, data: activeElem = {} } = this.state;
-    const { classes } = this.props;
+    const { anchorEl, openDialog, data: activeElem = {}, name } = this.state;
+    const { classes, data = {} } = this.props;
+    const { directors = [] } = data
 
     return (
       <>
+        <Paper>
+          <DirectorsSearch name={name} handleChange={this.handleChange} handleSearch={this.handleSearch} />
+        </Paper>
         <DirectorsDialog open={openDialog} handleClose={this.handleDialogClose} id={activeElem.id} />
         <Paper className={classes.root}>
           <Table>
@@ -73,7 +97,7 @@ class DirectorsTable extends React.Component {
                     <TableCell component="th" scope="row">{director.name}</TableCell>
                     <TableCell align="right">{director.age}</TableCell>
                     <TableCell>
-                      {director.movies.map((movie, key) => <div key={movie.name}>{`${key+1}. `}{movie.name}</div>)}
+                      {director.movies.map((movie, key) => <div key={movie.name}>{`${key + 1}. `}{movie.name}</div>)}
                     </TableCell>
                     <TableCell align="right">
                       <>
