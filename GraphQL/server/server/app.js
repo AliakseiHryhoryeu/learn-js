@@ -4,11 +4,13 @@ const graphqlHTTP = require('express-graphql')
 const schema = require('../schema/schema')
 const mongoose = require('mongoose')
 const cors = require('cors')
+const corsMiddleware = require('../middleware/cors.middleware')
 
 const app = express();
-const PORT = config.serverPort;
+const PORT = process.env.PORT || config.serverPort
 
 app.use(cors())
+app.use(corsMiddleware)
 
 const start = async () => {
   try {
