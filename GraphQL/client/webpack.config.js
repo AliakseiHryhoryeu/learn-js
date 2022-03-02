@@ -43,7 +43,7 @@ const jsxLoader = (param) => {
     options: babelOptions(param)
   }]
   if (isDev) {
-    loaders.push('eslint-loader')
+
   }
   return loaders
 }
