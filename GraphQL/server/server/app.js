@@ -8,6 +8,7 @@ const cors = require('cors')
 const app = express();
 const PORT = config.serverPort;
 
+app.use(cors())
 
 const start = async () => {
   try {
@@ -25,8 +26,6 @@ const start = async () => {
 }
 
 start()
-
-app.use(cors())
 app.use('/graphql', graphqlHTTP({
   schema,
   graphiql: true

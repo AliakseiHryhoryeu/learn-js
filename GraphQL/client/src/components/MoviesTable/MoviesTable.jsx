@@ -50,10 +50,13 @@ class MoviesTable extends React.Component {
     this.handleClose();
   };
 
+
   render() {
     const { anchorEl, openDialog, data: activeElem = {} } = this.state;
 
-    const { classes } = this.props;
+    const { classes, data } = this.props;
+    console.log(this.props.data)
+    // const { movies = [] } = data
 
     return (
       <>
@@ -88,7 +91,7 @@ class MoviesTable extends React.Component {
                         </IconButton>
                         <Menu id="simple-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={this.handleClose} >
                           <MenuItem onClick={this.handleEdit}><CreateIcon /> Edit</MenuItem>
-                          <MenuItem onClick={this.handleDelete}><DeleteIcon/> Delete</MenuItem>
+                          <MenuItem onClick={this.handleDelete}><DeleteIcon /> Delete</MenuItem>
                         </Menu>
                       </>
                     </TableCell>
