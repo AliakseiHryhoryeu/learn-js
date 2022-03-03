@@ -16,9 +16,9 @@
 + GraphQL
 
 ## Client
-
+https://learn-js-nu.vercel.app/
 
 ## Server
-https://cryptic-reef-23921.herokuapp.com/graphql
+https://gql1.herokuapp.com/graphql
 
 ![Cinema list](/preview.png)
