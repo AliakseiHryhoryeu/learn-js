@@ -20,5 +20,3 @@ https://learn-js-nu.vercel.app/
 
 ## Server
 https://gql1.herokuapp.com/graphql
-
-![Cinema list](/preview.png)
