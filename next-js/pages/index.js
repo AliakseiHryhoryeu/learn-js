@@ -1,5 +1,8 @@
+import Heading from "../components/Heading"
+
+
 const Home = ()=>(
-  <h1>Home page</h1>
+  <Heading text="Home page"/>
 
 )
 
