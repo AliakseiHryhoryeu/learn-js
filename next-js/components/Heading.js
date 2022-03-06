@@ -4,3 +4,4 @@ const Heading = ({tag, text}) => {
 };
 
 export default Heading;
+ 
