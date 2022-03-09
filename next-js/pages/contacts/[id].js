@@ -13,7 +13,7 @@ if(!data){
   }
 }
   return {
-    props: { contacts: data }
+    props: { contact: data }
   }
 }
 
