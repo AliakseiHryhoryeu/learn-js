@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
@@ -9,13 +10,16 @@ const navigation = [
     { id: 3, title: "Contacts", path: "/contacts" },
 ]
 
-const Navbar = () => {
+const Navbar: FC = () => {
     const { pathname } = useRouter()
 
     return (
         <nav className={styles.nav}>
             <div className={styles.logo}>
-                <Image src="/logo.png" width="60" height="60" alt="Logo" />
+
+                <Link key={Date.now()} href="/" passHref>
+                    <Image src="/logo.png" width="60" height="60" alt="Logo" />
+                </Link>
             </div>
             <div className={styles.links}>
                 {navigation.map(({ id, title, path }) => (
@@ -28,11 +32,5 @@ const Navbar = () => {
 
     )
 }
-
-{/* <Link href="/" ><a>Home</a></Link>
-<Link href="/posts" ><a>Posts</a></Link>
-<Link href="/contacts" ><a>Contacts</a></Link> */}
-
-
 
 export default Navbar
