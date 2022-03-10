@@ -16,7 +16,7 @@
 + GraphQL
 
 ## Client
-https://learn-js-nu.vercel.app/
+https://graphql-phi.vercel.app/
 
 ## Server
 https://gql1.herokuapp.com/graphql
