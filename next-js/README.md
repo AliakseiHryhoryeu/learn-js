@@ -7,4 +7,6 @@
 + NextJS
 
 ## Project
-https://gql1.herokuapp.com/graphql
+https://nextjs-liart-tau-84.vercel.app/
+
+![NextJS-App-preview](preview.png)
