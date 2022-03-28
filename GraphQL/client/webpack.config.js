@@ -15,7 +15,7 @@ const optimization = () => {
     },
     runtimeChunk: 'single'
   }
-  if (isProd) { 
+  if (isProd) {
     config.minimizer = [
       new OptimizeCssAssetWebpackPlugin(),
       new TerserWebpackPlugin()
@@ -58,7 +58,7 @@ module.exports = {
     filename: "[name].[hash].js"
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.png'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       '@': path.resolve(__dirname, "src")
     }
@@ -78,7 +78,7 @@ module.exports = {
         collapseWhitespace: isProd
       }
     }),
-    new CleanWebpackPlugin(), 
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css'
     })
@@ -99,15 +99,12 @@ module.exports = {
         use: jsxLoader('@babel/preset-react'),
       },
       {
-        test: /\.ts$/, 
+        test: /\.tsx?$/,
+        use: 'ts-loader',
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: babelOptions('@babel/preset-typescript')
-        },
       },
       {
-        test: /\.(sa|sc|c)ss$/, 
+        test: /\.(sa|sc|c)ss$/,
         use: [
           isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
