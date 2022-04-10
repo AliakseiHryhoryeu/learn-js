@@ -7,9 +7,9 @@ function longest(s1, s2) {
   return array
 }
 
-console.log(longest("aretheyhere", "yestheyarehere")) // "aehrsty"
-console.log(longest("loopingisfunbutdangerous", "lessdangerousthancoding")) // "abcdefghilnoprstu"
-console.log(longest("inmanylanguages", "theresapairoffunctions")) // "acefghilmnoprstuy"
+// console.log(longest("aretheyhere", "yestheyarehere")) // "aehrsty"
+// console.log(longest("loopingisfunbutdangerous", "lessdangerousthancoding")) // "abcdefghilnoprstu"
+// console.log(longest("inmanylanguages", "theresapairoffunctions")) // "acefghilmnoprstuy"
 
 // Implement a function that accepts 3 integer values a, b, c. 
 // The function should return true if a triangle can be built with the sides of given length and false in any other case.
@@ -64,3 +64,68 @@ function solve(string) {
   })
   return sumUppercase > sumLowercase ? string.toUpperCase() : string.toLowerCase()
 }
+
+// The first input array is the key to the correct answers to an exam, like ["a", "a", "b", "d"]. The second one contains a student's submitted answers.
+// The two arrays are not empty and are the same length. Return the score for this array of answers, giving +4 for each correct answer, -1 for each incorrect answer, and +0 for each blank answer, represented as an empty string (in C the space character is used).
+// If the score < 0, return 0.
+// 
+// For example:
+// checkExam(["a", "a", "b", "b"], ["a", "c", "b", "d"]) → 6
+// checkExam(["a", "a", "c", "b"], ["a", "a", "b",  ""]) → 7
+// checkExam(["a", "a", "b", "c"], ["a", "a", "b", "c"]) → 16
+// checkExam(["b", "c", "b", "a"], ["",  "a", "a", "c"]) → 0
+
+function checkExam(array1, array2) {
+  let sum = 0
+  for (let i = 0; i < array1.length; i++) {
+    if (array2[i] === '') {
+      continue
+    } else if (array1[i] === array2[i]) {
+      sum += 4
+      continue
+    } else {
+      sum--
+    }
+  }
+  return sum < 0 ? 0 : sum
+}
+
+// console.log(checkExam(["a", "a", "b", "b"], ["a", "c", "b", "d"])) // 6
+
+// remove all text after #
+function removeUrlAnchor(url) {
+  let array = url.split('')
+  let index
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === '#') {
+      index = i
+    }
+    if (index) {
+      array[i] = ''
+    }
+  }
+  return array.join('')
+}
+
+// console.log(removeUrlAnchor('www.codewars.com/katas/?page=1#about'))  // www.codewars.com/katas/?page=1
+
+// Write a function named sumDigits which takes a number as input 
+// and returns the sum of the absolute value of each of the number's decimal digits.
+function sumDigits(number) {
+  number = String(Math.abs(number))
+  let array = number.split('')
+  return array.reduce((prev, next) => Number(prev) + Number(next), 0)
+}
+
+// console.log(sumDigits(-32)) // 5
+// console.log(sumDigits(10)) // 1
+
+// Your task is to make a function that can take any non-negative integer as an argument 
+// and return it with its digits in descending order. 
+// Essentially, rearrange the digits to create the highest possible number.
+
+function descendingOrder(number) {
+  return Number(String(number).split('').sort((a, b) => b - a).join(''))
+}
+
+// console.log(descendingOrder(15)) //
