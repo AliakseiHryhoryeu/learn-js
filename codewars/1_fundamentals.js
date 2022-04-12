@@ -181,4 +181,54 @@ function accum(s) {
   return result.join('-');
 }
 
-console.log(accum("ZpglnRxqenU")) // "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu"
+// console.log(accum("ZpglnRxqenU")) // "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu"
+
+// As a part of this Kata, you need to create a function that when provided with a triplet, returns the index of the numerical element that lies between the other two elements.
+// The input to the function will be an array of three distinct numbers (Haskell: a tuple).
+// For example:
+// gimme([2, 3, 1]) => 0
+
+function gimme(triplet) {
+  let min = triplet[0]
+  let max = triplet[0]
+  let betweenId = 0
+  for (let i = 0; i < triplet.length; i++) {
+    if (triplet[i] > max) {
+      max = triplet[i]
+    }
+    if (triplet[i] < min) {
+      min = triplet[i]
+    }
+  }
+  for (let j = 0; j < triplet.length; j++) {
+    if (triplet[j] < max && triplet[j] > min) {
+      betweenId = j
+      break
+    }
+  }
+  return betweenId
+}
+
+// console.log(gimme([2, 3, 1])) // 2
+
+// You will be given an array and a limit value. 
+// You must check that all values in the array are below or equal to the limit value. 
+// If they are, return true. 
+// Else, return false.
+// You can assume all values in the array are numbers.
+
+function smallEnough(a, limit) {
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] > limit) {
+      return false
+    }
+  }
+  return true
+}
+
+// console.log(smallEnough([78, 117, 115], 120)) // true
+// console.log(smallEnough([78, 117, 110, 99, 104, 117, 107, 115], 100)) // false
+
+
+
+
