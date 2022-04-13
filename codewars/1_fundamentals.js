@@ -209,7 +209,7 @@ function gimme(triplet) {
   return betweenId
 }
 
-// console.log(gimme([2, 3, 1])) // 2
+console.log(gimme([2, 3, 1])) // 2
 
 // You will be given an array and a limit value. 
 // You must check that all values in the array are below or equal to the limit value. 
