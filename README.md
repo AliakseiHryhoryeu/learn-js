@@ -1,1 +1,1 @@
-### In this reposinory i learning new things
+### In this repository, I study technologies that interest me
