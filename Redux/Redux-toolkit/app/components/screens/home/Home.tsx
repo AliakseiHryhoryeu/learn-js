@@ -5,6 +5,7 @@ import ProductItem from './ProductItem'
 
 const Home: FC = () => {
 	const { data, isLoading, error } = useGetProductsQuery(6)
+
 	return (
 		<div>
 			<div className='flex justify-between items-center mb-10'>
@@ -19,7 +20,7 @@ const Home: FC = () => {
 				<div className='text-red'>{error}</div>
 			) : (
 				<div className='flex flex-wrap justify-between'>
-					{data?.map((product: any) => (
+					{data?.map(product => (
 						<ProductItem key={product.id} product={product} />
 					))}
 				</div>
